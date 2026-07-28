@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&family=Carter+One&display=swap'); 
+
+:root 
+{
+    --main-dark-color: #17002C;
+    --main-dark-alter-color: #E1B5AB;
+    --main-highlight-color: #D54C5C;
+    --second-highlight-color: #783345; 
+    --main-font-family: "Carter One", "Carattere", Arial, Helvetica, sans-serif;
+}
+
+* { box-sizing: border-box; } 
+
+html, body 
+{
+    margin: 0; 
+    height: 100%; 
+    overflow: hidden; 
+    color: var(--main-dark-color); 
+    font-family: var(--main-font-family); 
+}
+
+body 
+{
+    /* background-image: url("../images/background/bubu_dudu_background.png"); */
+    background-color: var(--main-dark-alter-color);
+    background-size: contain;
+}
+
+.viewport 
+{
+    position: relative; 
+    width: 100vw; 
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.track 
+{
+    position: relative; 
+    width: 100%; 
+    height: 100%;
+}
+
+.state 
+{
+    position: absolute; 
+    inset: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.6rem;
+    padding: 0 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.state.active {
+   opacity: 1;
+   pointer-events: auto;
+}
+
+.btn 
+{
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    cursor: pointer;
+}
+
+.left 
+{
+    left: 1rem;
+}
+
+.right 
+{
+    right: 1rem;
+}
+
+.btn:hover:not(:disabled) 
+{
+    background-color: #d07dff;
+}
+
+.btn:disabled 
+{
+    opacity: 0.5; 
+    cursor: default;
+}
+
+.dots 
+{
+    position: fixed;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 20;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.dot.active {
+  background: #fff;
+  transform: scale(1.3);
+}
