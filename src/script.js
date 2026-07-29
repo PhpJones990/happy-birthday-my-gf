@@ -64,4 +64,135 @@ gf_day_btn.addEventListener("click", () =>
     render();
 });
 
+
+var images = [
+    "../images/card_images/image001.png",
+    "../images/card_images/image002.png",
+    "../images/card_images/image003.png",
+    "../images/card_images/image004.png",
+    "../images/card_images/image005.png",
+    "../images/card_images/image006.png",
+    "../images/card_images/image007.png",
+    "../images/card_images/image008.png",
+    "../images/card_images/image009.png",
+    "../images/card_images/image010.png",
+    "../images/card_images/image011.png",
+    "../images/card_images/image012.png"
+]; 
+
+let first_card = null; 
+let second_card = null; 
+let can_flip = true; 
+let matches = 0; 
+
+let reward_gifts_btn = document.getElementById("reward_gifts_btn"); 
+
+function start_game() 
+{
+    let game_board = document.getElementById("game_board"); 
+    game_board.innerHTML = ""; 
+
+    let card_images = images.concat(images); 
+    
+    card_images.sort(() => Math.random() - 0.5); 
+
+    reward_gifts_btn.disabled = true; 
+
+    for (let i = 0; i < card_images.length; i++) 
+    {
+        let card = document.createElement("div"); 
+        card.className = "card"; 
+        card.innerHTML = `<div class="card-front"><img src="../images/card_images/cover_img.png"></div>` + 
+                         `<div class="card-back"><img src="${card_images[i]}"></div>`; 
+        card.onclick = flip_card; 
+        card.dataset.image = card_images[i]; 
+        game_board.appendChild(card); 
+    }
+
+    first_card = null; 
+    second_card = null; 
+    can_flip = true; 
+    matches = 0; 
+
+}
+
+function flip_card() 
+{
+    if (!can_flip) return; 
+    if (this.classList.contains("flipped")) return; 
+    if (this.classList.contains("matched")) return; 
+
+    this.classList.add("flipped"); 
+
+    if (first_card == null) 
+    {
+        first_card = this;
+    }
+    else 
+    {
+        second_card = this; 
+        can_flip = false; 
+        check_match(); 
+    }
+}
+
+function check_match() 
+{
+    let match = first_card.dataset.image == second_card.dataset.image; 
+
+    if (match) 
+    {
+        matches++;
+        setTimeout(() => 
+        {
+            first_card.classList.add("matched"); 
+            second_card.classList.add("matched"); 
+            reset_cards(); 
+
+            if (matches == 12) 
+            {
+                end_game(); 
+            }
+        }, 500); 
+    }
+    else 
+    {
+        setTimeout(() => 
+        {
+            first_card.classList.remove("flipped"); 
+            second_card.classList.remove("flipped"); 
+            reset_cards(); 
+        }, 1000); 
+    }
+}
+
+function reset_cards() 
+{
+    first_card = null; 
+    second_card = null; 
+    can_flip = true; 
+}
+
+function end_game() 
+{
+    reward_gifts_btn.disabled = false; 
+}
+
+function new_game() 
+{
+    start_game(); 
+}
+
+let new_game_btn = document.getElementById("new_game_btn"); 
+new_game_btn.addEventListener("click", start_game); 
+
+reward_gifts_btn.addEventListener("click", () => 
+{
+    current_index = 7; 
+    render();
+})
+
+start_game(); 
+
+
 render(); 
