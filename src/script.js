@@ -5,6 +5,9 @@ const right_btn = document.getElementById("right-btn");
 
 const go_wel_btn = document.getElementById("go-welcome"); 
 
+const get_gifts_btn = document.getElementById("get-gifts"); 
+const gf_day_btn = document.getElementById("gf-day"); 
+
 const last_index = states.length - 1; 
 let current_index = 0; 
 
@@ -47,6 +50,17 @@ right_btn.addEventListener("click", go_next);
 go_wel_btn.addEventListener("click", () => 
 {
     current_index = 1; 
+    render();
+});
+
+get_gifts_btn.addEventListener("click", () => 
+{
+    current_index = 2;
+    render();
+});
+gf_day_btn.addEventListener("click", () => 
+{
+    current_index = 3;
     render();
 });
 

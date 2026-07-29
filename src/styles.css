@@ -119,6 +119,7 @@ body
     border-radius: 10px;
     border: 5px double var(--main-highlight-color);
     cursor: default;
+    text-align: center;
     transition: all 0.5s ease;
 }
 
@@ -172,6 +173,7 @@ body
     border: 5px solid var(--main-highlight-color);
     margin-bottom: 1rem;
     cursor: pointer;
+    text-align: center;
     transition: all 0.5s ease;
 }
 
@@ -204,4 +206,49 @@ body
     {
         transform: scale(1.2);
     }
+}
+
+.play-bounce-animation 
+{
+    animation: bounce 0.5s ease;
+}
+
+.welcome 
+{
+    gap: 2rem;
+}
+
+.wel-title-container 
+{
+    background-color: var(--main-dark-color);
+    color: var(--main-dark-alter-color);
+    text-align: center;
+    border: 5px solid var(--main-highlight-color); 
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: default;
+    transition: all 0.5s ease;
+}
+
+.wel-title-container:hover 
+{
+    transform: scale(1.1);
+}
+
+.wel-btn-container 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+
+.get-gifts-title 
+{
+    background-color: var(--main-dark-color);
+    color: var(--main-dark-alter-color);
+    padding: 0.5rem 1rem;
+    text-align: center;
 }
