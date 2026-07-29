@@ -195,4 +195,31 @@ reward_gifts_btn.addEventListener("click", () =>
 start_game(); 
 
 
+const love_yes_btn = document.getElementById("love-yes"); 
+const love_no_btn = document.getElementById("love-no"); 
+
+love_yes_btn.addEventListener("click", () => 
+{
+    love_no_btn.style.position = "relative"; 
+    love_no_btn.style.left = "0px";
+    love_no_btn.style.top = "0px";
+
+    current_index = 4; 
+    render(); 
+});
+
+love_no_btn.addEventListener("mouseover", () => 
+{
+    const max_x = window.innerWidth - love_no_btn.offsetWidth; 
+    const max_y = window.innerHeight - love_no_btn.offsetHeight; 
+
+    const rand_x = Math.floor(Math.random() * max_x); 
+    const rand_y = Math.floor(Math.random() * max_y); 
+
+    love_no_btn.style.position = "absolute"; 
+    love_no_btn.style.left = rand_x + "px";
+    love_no_btn.style.top = rand_y + "px";
+});
+
+
 render(); 
