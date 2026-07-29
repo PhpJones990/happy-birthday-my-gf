@@ -22,8 +22,8 @@ html, body
 
 body 
 {
-    /* background-image: url("../images/background/bubu_dudu_background.png"); */
-    background-color: var(--main-dark-alter-color);
+    background-image: url("../images/background/bubu_dudu_background.png");
+    /* background-color: var(--main-dark-alter-color); */
     background-size: contain;
 }
 
@@ -51,7 +51,6 @@ body
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 0.6rem;
     padding: 0 1.5rem;
     opacity: 0;
     pointer-events: none;
@@ -66,8 +65,6 @@ body
 .btn 
 {
     position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
     z-index: 20;
     cursor: pointer;
 }
@@ -75,22 +72,14 @@ body
 .left 
 {
     left: 1rem;
+    top: 1rem;
 }
 
 .right 
 {
     right: 1rem;
-}
-
-.btn:hover:not(:disabled) 
-{
-    background-color: #d07dff;
-}
-
-.btn:disabled 
-{
-    opacity: 0.5; 
-    cursor: default;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .dots 
@@ -115,4 +104,104 @@ body
 .dot.active {
   background: #fff;
   transform: scale(1.3);
+}
+
+.hb 
+{
+    gap: 2rem;
+}
+
+.hb-title-container 
+{
+    background-color: var(--main-dark-color);
+    color: var(--main-dark-alter-color);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    border: 5px double var(--main-highlight-color);
+    cursor: default;
+    transition: all 0.5s ease;
+}
+
+.hb-title-container:hover 
+{
+    transform: scale(1.1);
+}
+
+.hb-message-container 
+{
+    width: 60%;
+    background-color: var(--main-highlight-color);
+    border-radius: 10px;
+    border: 5px solid var(--main-dark-color);
+    padding: 0.5rem 1rem;
+    font-family: "Carattere", "Carter One", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    cursor: default;
+    transition: all 0.5s ease;
+}
+
+.hb-message-container:hover 
+{
+    transform: scale(1.1);
+}
+
+.hb-message 
+{
+    text-align: center;
+    margin: 0;
+}
+
+.your-bf 
+{
+    text-align: right;
+    margin: 0;
+    margin-top: 0.3rem;
+}
+
+.btn-design 
+{
+    background-color: var(--main-dark-color);
+    color: var(--main-dark-alter-color);
+    padding: 0.5rem;
+    font-family: var(--main-font-family);
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 5px solid var(--main-highlight-color);
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.btn-design:hover:not(:disabled) 
+{
+    background-color: var(--main-dark-alter-color);
+    color: var(--main-dark-color);
+    border-color: var(--main-dark-color);
+    transform: scale(1.1);
+}
+
+.btn-design:active:not(:disabled)
+{
+    transform: scale(0.9);
+}
+
+.btn-design:disabled 
+{
+    opacity: 0.5; 
+    cursor: default;
+}
+
+@keyframes bounce 
+{
+    0%, 100% 
+    {
+        transform: scale(1);
+    }   
+    50% 
+    {
+        transform: scale(1.2);
+    }
 }

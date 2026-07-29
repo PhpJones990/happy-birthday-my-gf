@@ -3,6 +3,8 @@ const dots = document.querySelectorAll(".dot");
 const left_btn = document.getElementById("left-btn"); 
 const right_btn = document.getElementById("right-btn"); 
 
+const go_wel_btn = document.getElementById("go-welcome"); 
+
 const last_index = states.length - 1; 
 let current_index = 0; 
 
@@ -41,5 +43,11 @@ function go_prev()
 
 left_btn.addEventListener("click", go_prev);
 right_btn.addEventListener("click", go_next);
+
+go_wel_btn.addEventListener("click", () => 
+{
+    current_index = 1; 
+    render();
+});
 
 render(); 
