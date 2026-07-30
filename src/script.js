@@ -221,5 +221,15 @@ love_no_btn.addEventListener("mouseover", () =>
     love_no_btn.style.top = rand_y + "px";
 });
 
+const reward_card_containers = document.querySelectorAll(".reward-card-container"); 
+
+reward_card_containers.forEach((container) => 
+{
+    const reward_card = container.querySelector(".reward-card"); 
+    container.addEventListener("click", () => 
+    {
+        reward_card.classList.toggle("flip");
+    });
+});
 
 render(); 
