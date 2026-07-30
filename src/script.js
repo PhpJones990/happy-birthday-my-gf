@@ -23,6 +23,9 @@ function render()
     left_btn.disabled = current_index === 0; 
     right_btn.disabled = current_index === last_index; 
 
+    if (current_index !== 4) right_btn.disabled = true;
+    if (current_index === last_index) left_btn.disabled = true;   
+
     dots.forEach((dot, i) => { dot.classList.toggle("active", i === current_index)}); 
 }
 
@@ -37,6 +40,13 @@ function go_next()
 
 function go_prev() 
 {
+    if (current_index == 3) 
+    {
+        current_index = 1;
+        render(); 
+        return;
+    }
+
     if (current_index > 0) 
     {
         current_index--; 
@@ -188,7 +198,7 @@ new_game_btn.addEventListener("click", start_game);
 
 reward_gifts_btn.addEventListener("click", () => 
 {
-    current_index = 7; 
+    current_index = last_index; 
     render();
 })
 
@@ -230,6 +240,21 @@ reward_card_containers.forEach((container) =>
     {
         reward_card.classList.toggle("flip");
     });
+});
+
+const reward_home_nav = document.getElementById("reward-home-nav"); 
+const reward_gf_day_nav = document.getElementById("reward-gf-day-nav"); 
+
+reward_home_nav.addEventListener("click", () => 
+{
+    current_index = 0; 
+    render(); 
+});
+
+reward_gf_day_nav.addEventListener("click", () => 
+{
+    current_index = 3;
+    render(); 
 });
 
 render(); 
