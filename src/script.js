@@ -76,18 +76,18 @@ gf_day_btn.addEventListener("click", () =>
 
 
 var images = [
-    "../images/card_images/image001.png",
-    "../images/card_images/image002.png",
-    "../images/card_images/image003.png",
-    "../images/card_images/image004.png",
-    "../images/card_images/image005.png",
-    "../images/card_images/image006.png",
-    "../images/card_images/image007.png",
-    "../images/card_images/image008.png",
-    "../images/card_images/image009.png",
-    "../images/card_images/image010.png",
-    "../images/card_images/image011.png",
-    "../images/card_images/image012.png"
+    "images/card_images/image001.png",
+    "images/card_images/image002.png",
+    "images/card_images/image003.png",
+    "images/card_images/image004.png",
+    "images/card_images/image005.png",
+    "images/card_images/image006.png",
+    "images/card_images/image007.png",
+    "images/card_images/image008.png",
+    "images/card_images/image009.png",
+    "images/card_images/image010.png",
+    "images/card_images/image011.png",
+    "images/card_images/image012.png"
 ]; 
 
 let first_card = null; 
@@ -112,7 +112,7 @@ function start_game()
     {
         let card = document.createElement("div"); 
         card.className = "card"; 
-        card.innerHTML = `<div class="card-front"><img src="../images/card_images/cover_img.png"></div>` + 
+        card.innerHTML = `<div class="card-front"><img src="images/card_images/cover_img.png"></div>` + 
                          `<div class="card-back"><img src="${card_images[i]}"></div>`; 
         card.onclick = flip_card; 
         card.dataset.image = card_images[i]; 
